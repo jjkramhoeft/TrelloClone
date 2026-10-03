@@ -2,6 +2,8 @@
 
 **Live board: https://jjkramhoeft.github.io/TrelloClone/**
 
+[![The board with the sample drone-build content: five lists of cards with coloured labels, one card showing a frame drawing as its cover image](docs/screenshot.png)](https://jjkramhoeft.github.io/TrelloClone/)
+
 A simple, single-user Trello clone. The whole board loads from and saves to a JSON file on your own machine. There are no accounts, no server and no sync: one person, one file. To share a board, share the file.
 
 ## What it does
