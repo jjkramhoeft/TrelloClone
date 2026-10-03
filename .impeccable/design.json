@@ -1,0 +1,192 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-02T12:00:00Z",
+  "title": "Design System: Trello Clone (planning board)",
+  "extensions": {
+    "colorMeta": {
+      "ground": { "role": "neutral", "displayName": "Desk Grey", "canonical": "#efefef", "tonalRamp": ["#1c1c1c", "#333333", "#4f4f4f", "#6e6e6e", "#919191", "#b5b5b5", "#d6d6d6", "#efefef"] },
+      "surface-0": { "role": "neutral", "displayName": "Paper White", "canonical": "#ffffff", "tonalRamp": ["#111111", "#3d3d3d", "#6b6b6b", "#d2d2d2", "#e4e4e4", "#f3f3f3", "#fafafa", "#ffffff"] },
+      "surface-1": { "role": "neutral", "displayName": "Column White", "canonical": "#fafafa", "tonalRamp": ["#111111", "#3d3d3d", "#6b6b6b", "#d2d2d2", "#e4e4e4", "#ebebeb", "#f3f3f3", "#fafafa"] },
+      "surface-2": { "role": "neutral", "displayName": "Pale Grey", "canonical": "#f3f3f3", "tonalRamp": ["#111111", "#3d3d3d", "#6b6b6b", "#b9b9b9", "#d2d2d2", "#e4e4e4", "#ebebeb", "#f3f3f3"] },
+      "surface-3": { "role": "neutral", "displayName": "Hover Grey", "canonical": "#ebebeb", "tonalRamp": ["#111111", "#3d3d3d", "#555555", "#6b6b6b", "#b9b9b9", "#d2d2d2", "#e4e4e4", "#ebebeb"] },
+      "line": { "role": "neutral", "displayName": "Hairline", "canonical": "#e4e4e4" },
+      "line-card": { "role": "neutral", "displayName": "Card Hairline", "canonical": "#e6e6e6" },
+      "line-strong": { "role": "neutral", "displayName": "Firm Hairline", "canonical": "#d2d2d2" },
+      "line-hover": { "role": "neutral", "displayName": "Hover Hairline", "canonical": "#b9b9b9" },
+      "muted": { "role": "neutral", "displayName": "Muted Ink", "canonical": "#6b6b6b" },
+      "ink-quiet": { "role": "neutral", "displayName": "Quiet Ink", "canonical": "#555555" },
+      "ink-2": { "role": "neutral", "displayName": "Secondary Ink", "canonical": "#3d3d3d" },
+      "ink": { "role": "neutral", "displayName": "Ink", "canonical": "#111111", "tonalRamp": ["#111111", "#2a2a2a", "#3d3d3d", "#555555", "#6b6b6b", "#b9b9b9", "#e4e4e4", "#fafafa"] },
+      "ink-hover": { "role": "neutral", "displayName": "Ink Hover", "canonical": "#2a2a2a" },
+      "accent": { "role": "primary", "displayName": "Live Chartreuse", "canonical": "#b5d334", "tonalRamp": ["#263006", "#3e4f0c", "#5c7414", "#7f9c1f", "#a3c037", "#b5d334", "#e2efb0", "#f2f7dd"] },
+      "accent-wash": { "role": "primary", "displayName": "Chartreuse Wash", "canonical": "#f2f7dd" },
+      "accent-line": { "role": "primary", "displayName": "Chartreuse Edge", "canonical": "#a3c037" },
+      "accent-sel": { "role": "primary", "displayName": "Selection Chartreuse", "canonical": "#e2efb0" },
+      "danger": { "role": "semantic", "displayName": "Danger", "canonical": "#b42318", "tonalRamp": ["#3d0b07", "#6b150e", "#b42318", "#d6473b", "#e8857c", "#f3bdb7", "#f9dcd8", "#fdecea"] },
+      "danger-wash": { "role": "semantic", "displayName": "Danger Wash", "canonical": "#fdecea" },
+      "label-green-dot": { "role": "label", "displayName": "Green label", "canonical": "#3fa45b", "tonalRamp": ["#0f2c17", "#1f6b35", "#2e8a48", "#3fa45b", "#6fc084", "#a6d9b2", "#cdebd4", "#e3f2e6"] },
+      "label-yellow-dot": { "role": "label", "displayName": "Yellow label", "canonical": "#e2b203", "tonalRamp": ["#2e2402", "#735708", "#a98204", "#e2b203", "#f0cd4a", "#f6df8a", "#f8e9ad", "#faf0c6"] },
+      "label-orange-dot": { "role": "label", "displayName": "Orange label", "canonical": "#f08a24", "tonalRamp": ["#3a1c04", "#984a0c", "#c96a16", "#f08a24", "#f5a95e", "#f9c79a", "#fbd9bb", "#fde7d4"] },
+      "label-red-dot": { "role": "label", "displayName": "Red label", "canonical": "#e2483d", "tonalRamp": ["#3d0e0a", "#a3271b", "#c4372c", "#e2483d", "#ec7d74", "#f4afa9", "#f8cdc8", "#fbe3e0"] },
+      "label-purple-dot": { "role": "label", "displayName": "Purple label", "canonical": "#9f6ad4", "tonalRamp": ["#24133f", "#6236a8", "#8050c0", "#9f6ad4", "#bb95e1", "#d6bfee", "#e6d8f6", "#efe6fb"] },
+      "label-blue-dot": { "role": "label", "displayName": "Blue label", "canonical": "#3b74d6", "tonalRamp": ["#0b1d3f", "#1f4fa3", "#2d62bf", "#3b74d6", "#719be3", "#a8c2ef", "#cad9f6", "#e2ebfb"] },
+      "label-sky-dot": { "role": "label", "displayName": "Sky label", "canonical": "#2aa8c9", "tonalRamp": ["#062630", "#0f6278", "#1c86a2", "#2aa8c9", "#62c1da", "#9dd8e8", "#c4e8f2", "#dcf1f7"] },
+      "label-lime-dot": { "role": "label", "displayName": "Lime label", "canonical": "#94c748", "tonalRamp": ["#1d2805", "#4c660b", "#6f972b", "#94c748", "#b2d87c", "#cfe6ab", "#e0eec4", "#ecf4d4"] },
+      "label-pink-dot": { "role": "label", "displayName": "Pink label", "canonical": "#e0559a", "tonalRamp": ["#3b0c23", "#a12562", "#c23c7e", "#e0559a", "#ea86b7", "#f3b7d4", "#f8d2e4", "#fbe4ef"] },
+      "label-black-dot": { "role": "label", "displayName": "Black label", "canonical": "#4a4a4a", "tonalRamp": ["#111111", "#2b2b2b", "#3a3a3a", "#4a4a4a", "#7a7a7a", "#ababab", "#d4d4d4", "#e9e9e9"] }
+    },
+    "typographyMeta": {
+      "headline": { "displayName": "Headline", "purpose": "Card title in the card sheet." },
+      "title": { "displayName": "Title", "purpose": "Board title in the top bar and the empty-state heading; 17px below 640px." },
+      "title-list": { "displayName": "List title", "purpose": "List headers." },
+      "body": { "displayName": "Body", "purpose": "Card titles, inputs, general text." },
+      "body-long": { "displayName": "Body long", "purpose": "Card description textarea." },
+      "label": { "displayName": "Label", "purpose": "Buttons, menu items, Add a card, dropzone heading." },
+      "caption": { "displayName": "Caption", "purpose": "Chips, save status, counts, field labels, hints; tabular figures for numbers." },
+      "pill": { "displayName": "Pill", "purpose": "Label pills on cards." }
+    },
+    "shadows": [
+      { "name": "card", "value": "0 1px 2px rgba(17, 17, 17, .05)", "purpose": "Cards and composer at rest." },
+      { "name": "hover", "value": "0 6px 16px -6px rgba(17, 17, 17, .14), 0 1px 2px rgba(17, 17, 17, .05)", "purpose": "Card under the pointer." },
+      { "name": "list", "value": "0 1px 2px rgba(17,17,17,.04), 0 14px 30px -24px rgba(17,17,17,.22)", "purpose": "Lists just above the ground." },
+      { "name": "pop", "value": "0 12px 28px -12px rgba(17, 17, 17, .24), 0 2px 6px rgba(17, 17, 17, .06)", "purpose": "Menus and the file drop hint." },
+      { "name": "lift", "value": "0 16px 30px -12px rgba(17, 17, 17, .30), 0 4px 10px -4px rgba(17, 17, 17, .10)", "purpose": "The dragged card ghost." },
+      { "name": "sheet", "value": "-20px 0 40px -24px rgba(17,17,17,.28)", "purpose": "Right-docked card sheet, over a rgba(17,17,17,.2) backdrop." },
+      { "name": "toast", "value": "0 14px 34px -12px rgba(17,17,17,.45)", "purpose": "Ink toast at bottom centre." },
+      { "name": "focus-halo", "value": "0 0 0 3px rgba(17,17,17,.07)", "purpose": "Paired with an ink border on focused text fields and inline titles." },
+      { "name": "drop-target", "value": "0 0 0 3px #f2f7dd", "purpose": "Card targeted by a file drop, with a Chartreuse Edge border." }
+    ],
+    "motion": [
+      { "name": "ease", "value": "cubic-bezier(.2, .8, .2, 1)", "purpose": "The single curve for popovers, sheet, drag, FLIP reflow, toast and save ring." },
+      { "name": "hover", "value": "150ms", "purpose": "Colour, border and shadow changes on hover." },
+      { "name": "press", "value": "100ms scale(.98)", "purpose": "Button press." },
+      { "name": "pop-in", "value": "140ms, from translateY(-4px) scale(.98) opacity 0", "purpose": "Menus opening." },
+      { "name": "sheet-in", "value": "260ms, from translateX(28px) opacity 0", "purpose": "Card sheet entering; backdrop fades over 200ms." },
+      { "name": "lift", "value": "180ms, rotate 1.75deg, scale 1.025", "purpose": "Drag ghost lifting." },
+      { "name": "drop-and-reflow", "value": "200ms", "purpose": "Ghost gliding into the slot and FLIP transform of neighbouring cards." },
+      { "name": "ring-fill", "value": "250ms fill; 420ms pop scale .55 to 1.3 to 1", "purpose": "Save ring turning from hollow to filled on save." },
+      { "name": "toast", "value": "180ms opacity, 220ms rise of 14px", "purpose": "Toast entering." },
+      { "name": "reduced-motion", "value": ".01ms", "purpose": "All animations and transitions collapse under prefers-reduced-motion." }
+    ],
+    "breakpoints": [
+      { "name": "compact", "value": "760px", "purpose": "Save status text hides." },
+      { "name": "phone", "value": "640px", "purpose": "Chip hides, Open goes icon-only, lists snap one per screen at 100vw - 52px, sheet goes full width." }
+    ]
+  },
+  "components": [
+    {
+      "name": "Save Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The solid ink primary action, carrying the save ring: hollow while unsaved, filled when the file matches the board.",
+      "html": "<div style=\"display:flex;gap:8px\"><button class=\"ds-btn ds-btn-primary ds-btn-save\"><span class=\"ds-ring\"></span>Save</button><button class=\"ds-btn ds-btn-primary ds-btn-save is-synced\"><span class=\"ds-ring\"></span>Save</button></div>",
+      "css": ".ds-btn { display:inline-flex; align-items:center; justify-content:center; gap:8px; height:34px; padding:0 14px; border:1px solid transparent; border-radius:9px; font-family:var(--font, Satoshi, ui-sans-serif, system-ui, sans-serif); font-size:13.5px; font-weight:500; line-height:1; white-space:nowrap; cursor:pointer; transition:background-color .15s, border-color .15s, color .15s, transform .1s; } .ds-btn:active { transform:scale(.98); } .ds-btn:focus-visible { outline:2px solid #111111; outline-offset:2px; } .ds-btn-primary { background:var(--ink, #111111); color:#fff; } .ds-btn-primary:hover { background:#2a2a2a; } .ds-btn-save { padding:0 15px 0 12px; } .ds-ring { width:12px; height:12px; border-radius:50%; border:2px solid var(--accent, #b5d334); background:transparent; transition:background-color .25s cubic-bezier(.2,.8,.2,1); } .ds-btn-save.is-synced .ds-ring { background:var(--accent, #b5d334); }"
+    },
+    {
+      "name": "Ghost Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "White hairline secondary action, such as Open.",
+      "html": "<button class=\"ds-btn-ghost\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z\"/></svg>Open</button>",
+      "css": ".ds-btn-ghost { display:inline-flex; align-items:center; gap:8px; height:34px; padding:0 14px; border:1px solid var(--line-strong, #d2d2d2); border-radius:9px; background:var(--s0, #ffffff); color:var(--ink, #111111); font-family:var(--font, Satoshi, ui-sans-serif, system-ui, sans-serif); font-size:13.5px; font-weight:500; line-height:1; cursor:pointer; transition:background-color .15s, border-color .15s, transform .1s; } .ds-btn-ghost:hover { border-color:#b9b9b9; background:var(--s1, #fafafa); } .ds-btn-ghost:active { transform:scale(.98); } .ds-btn-ghost:focus-visible { outline:2px solid #111111; outline-offset:2px; }"
+    },
+    {
+      "name": "Danger Button",
+      "kind": "button",
+      "refersTo": "button-danger",
+      "description": "Transparent destructive action in the card sheet foot.",
+      "html": "<button class=\"ds-btn-danger\">Delete card</button>",
+      "css": ".ds-btn-danger { display:inline-flex; align-items:center; height:34px; padding:0 10px; border:1px solid transparent; border-radius:9px; background:transparent; color:var(--danger, #b42318); font-family:var(--font, Satoshi, ui-sans-serif, system-ui, sans-serif); font-size:13.5px; font-weight:500; cursor:pointer; transition:background-color .15s; } .ds-btn-danger:hover { background:var(--danger-wash, #fdecea); } .ds-btn-danger:focus-visible { outline:2px solid #111111; outline-offset:2px; }"
+    },
+    {
+      "name": "Text Input",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Hairline field; focus turns the border to ink with a faint halo.",
+      "html": "<input class=\"ds-input\" placeholder=\"Paste an image link\">",
+      "css": ".ds-input { width:260px; height:34px; padding:0 11px; border:1px solid var(--line-strong, #d2d2d2); border-radius:9px; background:var(--s0, #ffffff); color:#111111; font-family:var(--font, Satoshi, ui-sans-serif, system-ui, sans-serif); font-size:14px; transition:border-color .15s, box-shadow .15s; } .ds-input::placeholder { color:#707070; } .ds-input:focus { outline:none; border-color:var(--ink, #111111); box-shadow:0 0 0 3px rgba(17,17,17,.07); }"
+    },
+    {
+      "name": "File Chip",
+      "kind": "chip",
+      "refersTo": "chip",
+      "description": "Top-bar chip naming the open file; the quiet dashed variant marks sample content.",
+      "html": "<div style=\"display:flex;gap:8px\"><span class=\"ds-chip\">drone-build.json</span><span class=\"ds-chip ds-chip-quiet\">Sample board</span></div>",
+      "css": ".ds-chip { display:inline-flex; align-items:center; gap:6px; height:26px; padding:0 9px; border:1px solid var(--line, #e4e4e4); border-radius:8px; background:var(--s0, #ffffff); color:var(--ink-2, #3d3d3d); font-family:var(--font, Satoshi, ui-sans-serif, system-ui, sans-serif); font-size:12.5px; font-weight:500; white-space:nowrap; } .ds-chip-quiet { background:transparent; border-style:dashed; border-color:var(--line-strong, #d2d2d2); color:var(--muted, #6b6b6b); }"
+    },
+    {
+      "name": "List with Cards",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "A 280px column on the grey ground holding white cards with label pills.",
+      "html": "<div class=\"ds-ground\"><section class=\"ds-list\"><header class=\"ds-list-head\"><h3>To do</h3><span class=\"ds-count\">2</span></header><ul class=\"ds-cards\"><li class=\"ds-card\" tabindex=\"0\"><div class=\"ds-labels\"><span class=\"ds-lbl ds-blue\">Hardware</span><span class=\"ds-lbl ds-yellow\">To order</span></div><p>Order a 5 inch freestyle frame</p></li><li class=\"ds-card\" tabindex=\"0\"><div class=\"ds-labels\"><span class=\"ds-lbl ds-orange\">Electronics</span></div><p>Solder the XT60 pigtail</p></li></ul><button class=\"ds-add\">+ Add a card</button></section></div>",
+      "css": ".ds-ground { padding:20px 24px; background:#efefef; font-family:var(--font, Satoshi, ui-sans-serif, system-ui, sans-serif); color:#111111; } .ds-list { width:280px; background:var(--s1, #fafafa); border:1px solid var(--line, #e4e4e4); border-radius:14px; box-shadow:0 1px 2px rgba(17,17,17,.04), 0 14px 30px -24px rgba(17,17,17,.22); } .ds-list-head { display:flex; align-items:center; padding:12px 12px 6px 14px; } .ds-list-head h3 { margin:0; flex:1; font-size:14px; font-weight:700; line-height:1.3; } .ds-count { font-size:12px; font-weight:500; color:#6b6b6b; font-variant-numeric:tabular-nums; } .ds-cards { list-style:none; margin:0; padding:4px 8px 2px; display:flex; flex-direction:column; gap:8px; } .ds-card { background:#ffffff; border:1px solid var(--line-card, #e6e6e6); border-radius:10px; box-shadow:0 1px 2px rgba(17,17,17,.05); padding:9px 11px 10px 12px; cursor:pointer; transition:border-color .15s, box-shadow .15s; } .ds-card:hover { border-color:#d2d2d2; box-shadow:0 6px 16px -6px rgba(17,17,17,.14), 0 1px 2px rgba(17,17,17,.05); } .ds-card:focus-visible { outline:2px solid #111111; outline-offset:2px; } .ds-card p { margin:0; font-size:14px; line-height:1.42; } .ds-labels { display:flex; flex-wrap:wrap; gap:4px; margin:1px 0 7px; } .ds-lbl { display:inline-flex; align-items:center; height:20px; padding:0 7px; border-radius:6px; font-size:11.5px; font-weight:500; letter-spacing:.005em; } .ds-blue { background:#e2ebfb; color:#1f4fa3; } .ds-yellow { background:#faf0c6; color:#735708; } .ds-orange { background:#fde7d4; color:#984a0c; } .ds-add { display:flex; align-items:center; width:calc(100% - 16px); margin:6px 8px 8px; height:34px; padding:0 9px; border:0; border-radius:8px; background:none; color:#555555; font:inherit; font-size:13.5px; font-weight:500; text-align:left; cursor:pointer; transition:background-color .15s, color .15s; } .ds-add:hover { background:rgba(17,17,17,.05); color:#111111; }"
+    },
+    {
+      "name": "Label Pills",
+      "kind": "chip",
+      "refersTo": "label-pill",
+      "description": "The ten Trello-named label tints as quiet pills.",
+      "html": "<div class=\"ds-pills\"><span class=\"ds-pill\" style=\"background:#e3f2e6;color:#1f6b35\">Green</span><span class=\"ds-pill\" style=\"background:#faf0c6;color:#735708\">Yellow</span><span class=\"ds-pill\" style=\"background:#fde7d4;color:#984a0c\">Orange</span><span class=\"ds-pill\" style=\"background:#fbe3e0;color:#a3271b\">Red</span><span class=\"ds-pill\" style=\"background:#efe6fb;color:#6236a8\">Purple</span><span class=\"ds-pill\" style=\"background:#e2ebfb;color:#1f4fa3\">Blue</span><span class=\"ds-pill\" style=\"background:#dcf1f7;color:#0f6278\">Sky</span><span class=\"ds-pill\" style=\"background:#ecf4d4;color:#4c660b\">Lime</span><span class=\"ds-pill\" style=\"background:#fbe4ef;color:#a12562\">Pink</span><span class=\"ds-pill\" style=\"background:#e9e9e9;color:#2b2b2b\">Black</span></div>",
+      "css": ".ds-pills { display:flex; flex-wrap:wrap; gap:4px; max-width:320px; } .ds-pill { display:inline-flex; align-items:center; height:20px; padding:0 7px; border-radius:6px; font-family:var(--font, Satoshi, ui-sans-serif, system-ui, sans-serif); font-size:11.5px; font-weight:500; letter-spacing:.005em; white-space:nowrap; }"
+    },
+    {
+      "name": "Menu",
+      "kind": "custom",
+      "refersTo": "menu",
+      "description": "Popover menu with icon rows, a divider and a danger item.",
+      "html": "<div class=\"ds-menu\" role=\"menu\"><button class=\"ds-mi\" role=\"menuitem\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\"><path d=\"M12 5v14M5 12h14\"/></svg>Add a card</button><button class=\"ds-mi\" role=\"menuitem\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\"><path d=\"M4 20h4L19 9l-4-4L4 16z\"/></svg>Rename list<span class=\"ds-kbd\">F2</span></button><hr><button class=\"ds-mi ds-mi-danger\" role=\"menuitem\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\"><path d=\"M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3\"/></svg>Delete list</button></div>",
+      "css": ".ds-menu { width:230px; padding:6px; background:#ffffff; border:1px solid var(--line, #e4e4e4); border-radius:12px; box-shadow:0 12px 28px -12px rgba(17,17,17,.24), 0 2px 6px rgba(17,17,17,.06); font-family:var(--font, Satoshi, ui-sans-serif, system-ui, sans-serif); } .ds-mi { display:flex; align-items:center; gap:10px; width:100%; height:34px; padding:0 10px; border:0; border-radius:8px; background:none; color:#111111; font:inherit; font-size:13.5px; font-weight:500; text-align:left; cursor:pointer; } .ds-mi svg { color:#6b6b6b; flex:none; } .ds-mi:hover, .ds-mi:focus-visible { background:var(--s2, #f3f3f3); outline:none; } .ds-kbd { margin-left:auto; font-size:12px; font-weight:400; color:#6b6b6b; } .ds-mi-danger, .ds-mi-danger svg { color:var(--danger, #b42318); } .ds-menu hr { border:0; border-top:1px solid #e4e4e4; margin:6px 4px; }"
+    },
+    {
+      "name": "Drop Slot and Drag Ghost",
+      "kind": "custom",
+      "refersTo": "drop-slot",
+      "description": "The lifted card under the pointer and the chartreuse slot where it will land.",
+      "html": "<div class=\"ds-drag\"><div class=\"ds-ghost\">Order a 5 inch freestyle frame</div><div class=\"ds-slot\"></div></div>",
+      "css": ".ds-drag { width:264px; padding:16px 8px; background:#fafafa; border-radius:14px; display:grid; gap:8px; font-family:var(--font, Satoshi, ui-sans-serif, system-ui, sans-serif); } .ds-ghost { padding:9px 11px 10px 12px; background:#ffffff; border:1px solid #d2d2d2; border-radius:10px; font-size:14px; line-height:1.42; color:#111111; rotate:1.75deg; scale:1.025; box-shadow:0 16px 30px -12px rgba(17,17,17,.30), 0 4px 10px -4px rgba(17,17,17,.10); transition:rotate .18s cubic-bezier(.2,.8,.2,1), scale .18s cubic-bezier(.2,.8,.2,1); } .ds-ghost:hover { rotate:0deg; scale:1; } .ds-slot { height:56px; border-radius:10px; background:var(--accent-wash, #f2f7dd); border:1.5px dashed var(--accent-line, #a3c037); }"
+    },
+    {
+      "name": "Toast",
+      "kind": "custom",
+      "refersTo": "toast",
+      "description": "Ink bar at bottom centre with an underlined inline action.",
+      "html": "<div class=\"ds-toast\">Card deleted<button>Undo</button></div>",
+      "css": ".ds-toast { display:inline-flex; align-items:center; gap:6px; min-height:42px; padding:9px 9px 9px 14px; background:var(--ink, #111111); color:#f2f2f2; border-radius:11px; font-family:var(--font, Satoshi, ui-sans-serif, system-ui, sans-serif); font-size:13.5px; box-shadow:0 14px 34px -12px rgba(17,17,17,.45); } .ds-toast button { border:0; background:transparent; color:#fff; font:inherit; font-weight:700; padding:5px 9px; border-radius:7px; text-decoration:underline; text-decoration-color:rgba(255,255,255,.4); text-underline-offset:3px; cursor:pointer; } .ds-toast button:hover { background:rgba(255,255,255,.1); text-decoration-color:#fff; } .ds-toast button:focus-visible { outline:2px solid #fff; outline-offset:2px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Neutral Instrument",
+    "overview": "The board is a precision tool on a desk in daylight: a quiet grey field, white cards resting on pale columns, and near-black ink. Everything structural (ground, lists, cards, controls, chrome) is drawn from one neutral scale running from pure white to #111111. Colour is reserved for information. Labels carry their meaning in tinted pills, and a single chartreuse accent marks what is live: the save-state ring, the slot a dragged card will land in, a file dragged over the cover dropzone, and text selection.\n\nDensity is Trello-quick rather than airy: 280px columns, 8px gaps between cards, 34px controls, 14px body text. Depth is soft and physical (hairlines plus low, diffuse shadows), and motion is short and eased with one curve. The signature behaviours are the lifted drag card, which tilts and grows slightly under a deeper shadow while its neighbours reflow, and the save ring, which is hollow while the board differs from the file and fills when they match.\n\nThe build rejects a coloured wallpaper behind floating tiles and any brand colour washed across surfaces. The ground stays grey and the chrome stays neutral.",
+    "keyCharacteristics": [
+      "One neutral scale for all structure; colour only where it carries information.",
+      "A single chartreuse accent, always meaning \"live\" or \"landing here\".",
+      "Satoshi at three weights (400, 500, 700), with tabular figures for counts and status.",
+      "1px hairlines and soft, diffuse shadows; radii from 6px to 14px that grow with the size of the container.",
+      "Solid near-black primary action; white hairline ghosts for everything secondary."
+    ],
+    "rules": [
+      { "name": "The Information-Only Colour Rule", "body": "Hue appears only where it says something: a label, the save state, a drop target, danger. Every surface, border and control that is not one of those stays on the neutral ramp.", "section": "colors" },
+      { "name": "The Live Accent Rule", "body": "Chartreuse means \"live now\" or \"this lands here\". It never decorates, never fills a resting surface, and never sits on a button background. It shows as the save ring inside the black button, or as a wash plus edge on a target.", "section": "colors" },
+      { "name": "The Three Weights Rule", "body": "Use only 400, 500 and 700, the three embedded cuts. Bold is reserved for titles (board, list, card sheet); controls speak at 500.", "section": "typography" },
+      { "name": "The Tabular Count Rule", "body": "Counts and save status use `font-variant-numeric: tabular-nums` so they don't shift width when the numbers change.", "section": "typography" },
+      { "name": "The Rise With Intent Rule", "body": "The shadow deepens only with the object's state: rest, hover, popover, lift. A surface never wears a deeper shadow than its role calls for.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do build every surface, border and control from the neutral ramp, from Paper White (#ffffff) to Ink (#111111).",
+      "Do reserve chartreuse for live state: the save ring, drop slots and drop targets, and text selection.",
+      "Do keep one solid ink primary button per surface; everything else is a hairline ghost, a link or an icon button.",
+      "Do use soft, ink-tinted, downward shadows that deepen with state (rest, hover, pop, lift).",
+      "Do use dashed hairlines for space that can be filled (add list, dropzone, drop slot, sample marker).",
+      "Do use tabular figures for counts and save status.",
+      "Do use the shared curve `cubic-bezier(.2, .8, .2, 1)` and keep motion under 300ms, except the 420ms save-ring pop."
+    ],
+    "donts": [
+      "Don't put a brand or accent colour on a resting surface, a ground, or a button fill; the ground stays Desk Grey.",
+      "Don't use label tints for chrome; they belong to labels only.",
+      "Don't use Satoshi weights other than 400, 500 and 700; only those three are embedded.",
+      "Don't use hard-edged or zero-blur offset shadows; depth here is diffuse.",
+      "Don't add a second typeface; hierarchy comes from weight and size within Satoshi."
+    ]
+  }
+}

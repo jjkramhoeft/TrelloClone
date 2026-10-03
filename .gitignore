@@ -1,0 +1,7 @@
+# Impeccable working files (review captures, decision-page logs, machine-local config)
+.impeccable/review/
+.impeccable/questions/
+.impeccable/config.local.json
+
+# Claude Code machine-local settings
+.claude/settings.local.json
