@@ -12,6 +12,7 @@ A simple, single-user Trello clone. The whole board loads from and saves to a JS
 - Cards have a title, a description, coloured labels and an optional image.
 - **Open** (Ctrl+O) loads a board JSON file. You can also drop a `.json` file onto the page.
 - **Save** (Ctrl+S) writes the board back to the same file. The ring on the Save button is filled when the file matches the board and hollow when there are unsaved changes.
+- **Export as Markdown** (in the ⋯ menu) downloads a readable `.md` copy of the board, named after the board file: the title, then every list with its cards, labels, descriptions and images.
 - Trello JSON exports open directly, so you can bring an existing board over. In Trello, use Menu → Print, export and share → Export as JSON. Archived lists and cards are skipped. Images uploaded to Trello are not imported, because Trello only serves them to logged-in users.
 - Images are embedded in the JSON, so one file holds the whole board. Large photos are scaled to 1600px first.
 - The browser keeps a backup of the current board, so a refresh doesn't lose work. Deleting a card, list or label offers an Undo.

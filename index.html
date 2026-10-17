@@ -701,6 +701,32 @@ function toJSON() {
   return JSON.stringify({ format: 'planning-board', version: 1, savedAt: new Date().toISOString(), board }, null, 2) + '\n';
 }
 
+// Lists become ## headings and cards ### headings. Images are collected as references at the end
+// so large data URLs don't bury the text.
+function toMarkdown() {
+  const mdEsc = s => str(s).replace(/[\\`*_[\]<>#]/g, '\\$&');
+  const pct = c => '%' + c.charCodeAt(0).toString(16).padStart(2, '0').toUpperCase();
+  const out = [`# ${mdEsc(board.title)}`];
+  const images = [];
+  board.lists.forEach(list => {
+    out.push('', `## ${mdEsc(list.title)}`);
+    if (!list.cards.length) out.push('', '_No cards_');
+    list.cards.forEach(card => {
+      out.push('', `### ${mdEsc(card.title)}`);
+      const labels = card.labels.map(labelById).filter(Boolean).map(l => mdEsc(l.name || l.color));
+      if (labels.length) out.push('', `**Labels:** ${labels.join(', ')}`);
+      if (card.image) {
+        images.push(card.image);
+        out.push('', `![Card image][image-${images.length}]`);
+      }
+      const desc = card.description.trim().replace(/\r\n?/g, '\n');
+      if (desc) out.push('', desc.replace(/([^\n])\n(?=[^\n])/g, '$1  \n'));
+    });
+  });
+  if (images.length) out.push('', ...images.map((url, i) => `[image-${i + 1}]: <${url.replace(/[\s<>]/g, pct)}>`));
+  return out.join('\n') + '\n';
+}
+
 function normalizeBoard(b) {
   const labels = (Array.isArray(b.labels) ? b.labels : []).filter(l => l && typeof l === 'object').map(l => ({
     id: str(l.id) || uid(),
@@ -835,6 +861,7 @@ function boardMenuItems() {
     { label: 'Open…', sub: 'A board file or a Trello JSON export', icon: 'folder', kbd: `${MOD} O`, run: openFile },
     canPickFiles && { label: 'Save as…', icon: 'save', kbd: `${MOD} ⇧ S`, run: () => save(true) },
     { label: 'Download a copy', icon: 'download', run: downloadCopy },
+    { label: 'Export as Markdown', icon: 'file', run: exportMarkdown },
     'sep',
     { label: 'Load the sample board', icon: 'board', run: loadSample },
   ].filter(Boolean);
@@ -934,14 +961,18 @@ async function save(asNew = false) {
   }
 }
 
-function download(text, name) {
-  const url = URL.createObjectURL(new Blob([text], { type: 'application/json' }));
+function download(text, name, type = 'application/json') {
+  const url = URL.createObjectURL(new Blob([text], { type }));
   const a = Object.assign(document.createElement('a'), { href: url, download: name });
   document.body.append(a); a.click(); a.remove();
   setTimeout(() => URL.revokeObjectURL(url), 2000);
 }
 function downloadCopy() {
   download(toJSON(), meta.fileName || fileSlug(board.title));
+}
+function exportMarkdown() {
+  const name = (meta.fileName || fileSlug(board.title)).replace(/\.[^.]*$/, '') + '.md';
+  download(toMarkdown(), name, 'text/markdown');
 }
 
 function newBoard() {
