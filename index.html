@@ -1031,14 +1031,23 @@ const emptyHTML = () => `<div class="empty">
     </div>
   </div>`;
 
+// Replacing the board's HTML fires focusout synchronously on whatever is focused inside it.
+// The focusout handler checks this so a re-render isn't mistaken for the user leaving the composer.
+let rendering = false;
+
 function render() {
   const scroll = { left: boardEl.scrollLeft, lists: {} };
   boardEl.querySelectorAll('.cards').forEach(c => { scroll.lists[c.dataset.list] = c.scrollTop; });
 
-  if (!board.lists.length && !ui.addingList) {
-    boardEl.innerHTML = emptyHTML();
-  } else {
-    boardEl.innerHTML = board.lists.map(listHTML).join('') + (ui.addingList ? addListFormHTML() : addListBtnHTML());
+  rendering = true;
+  try {
+    if (!board.lists.length && !ui.addingList) {
+      boardEl.innerHTML = emptyHTML();
+    } else {
+      boardEl.innerHTML = board.lists.map(listHTML).join('') + (ui.addingList ? addListFormHTML() : addListBtnHTML());
+    }
+  } finally {
+    rendering = false;
   }
 
   boardEl.scrollLeft = scroll.left;
@@ -1095,6 +1104,7 @@ boardEl.addEventListener('input', e => {
 });
 
 boardEl.addEventListener('focusout', e => {
+  if (rendering) return;
   const composer = e.target.closest('.composer');
   if (composer && !composer.contains(e.relatedTarget) && ui.composer && !ui.composer.text.trim()) closeComposer();
   const addForm = e.target.closest('.add-list.is-open');
