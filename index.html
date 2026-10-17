@@ -355,6 +355,44 @@ body.is-panning, body.is-panning * { cursor: grabbing !important; user-select: n
 @keyframes sheet-in { from { transform: translateX(28px); opacity: 0; } }
 @keyframes fade-in { from { opacity: 0; } }
 
+/* ---------- Previous boards ---------- */
+.recent {
+  width: max(60vw, min(560px, 100vw - 32px)); height: max(60vh, min(440px, 100dvh - 32px));
+  max-width: calc(100vw - 32px); max-height: calc(100dvh - 32px);
+  padding: 0; border: 1px solid var(--line); border-radius: 14px;
+  background: var(--s0); color: var(--ink);
+  box-shadow: 0 24px 48px -20px rgba(17,17,17,.32), 0 2px 6px rgba(17,17,17,.06);
+}
+.recent[open] { display: flex; flex-direction: column; animation: pop-in .2s var(--ease); }
+.recent::backdrop { background: rgba(17,17,17,.2); animation: fade-in .2s ease-out; }
+.recent-head { display: flex; align-items: center; gap: 8px; padding: 14px 12px 14px 22px; border-bottom: 1px solid var(--line); }
+.recent-title { margin: 0 auto 0 0; font-size: 17px; font-weight: 700; letter-spacing: -.015em; line-height: 1.2; }
+.recent-body { flex: 1; min-height: 0; overflow-y: auto; padding: 10px; }
+.recent-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; }
+.recent-item { display: flex; align-items: center; gap: 4px; padding-right: 8px; border-radius: 10px; transition: background-color .15s; }
+.recent-item:hover, .recent-item:focus-within { background: var(--s2); }
+.recent-open {
+  flex: 1; min-width: 0; display: flex; align-items: center; gap: 12px;
+  padding: 10px 12px; border: 0; border-radius: 10px; background: none; text-align: left;
+}
+.recent-open:focus-visible { outline-offset: -2px; }
+.recent-icon { display: grid; place-items: center; width: 36px; height: 36px; flex: none; border: 1px solid var(--line); border-radius: 9px; background: var(--s1); color: var(--muted); }
+.recent-text {
+  flex: 1; min-width: 0; display: grid; gap: 2px 12px;
+  grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "line when" "meta meta";
+}
+.recent-line { grid-area: line; display: flex; align-items: center; gap: 8px; min-width: 0; }
+.recent-name { font-weight: 500; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.recent-tag { flex: none; padding: 1px 7px; border-radius: 6px; background: var(--s3); color: var(--ink-2); font-size: 11.5px; font-weight: 500; }
+.recent-when { grid-area: when; align-self: center; font-size: 12.5px; color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.recent-meta { grid-area: meta; font-size: 12.5px; color: var(--muted); font-variant-numeric: tabular-nums; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.recent-empty { height: 100%; display: grid; place-content: center; justify-items: center; padding: 24px; text-align: center; }
+.recent-empty h3 { margin: 0 0 6px; font-size: 14px; font-weight: 700; }
+.recent-empty p { margin: 0; max-width: 340px; color: var(--muted); line-height: 1.55; text-wrap: pretty; }
+.recent-foot { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 12px 14px; border-top: 1px solid var(--line); }
+.recent-foot .btn { min-width: 0; }
+.recent-foot .btn span { overflow: hidden; text-overflow: ellipsis; }
+
 .sheet-head { display: flex; align-items: center; gap: 8px; padding: 11px 12px 11px 20px; border-bottom: 1px solid var(--line); }
 .sheet-crumb { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--muted); margin-right: auto; min-width: 0; }
 .select {
@@ -453,6 +491,10 @@ body.is-panning, body.is-panning * { cursor: grabbing !important; user-select: n
 body.is-file-over .drop-hint { opacity: 1; }
 
 /* ---------- Small screens ---------- */
+@media (max-width: 900px) {
+  .btn-open .btn-text { display: none; }
+  .btn-open { width: 34px; padding: 0; }
+}
 @media (max-width: 760px) {
   .save-status { display: none; }
   .title-wrap { max-width: 46vw; }
@@ -460,13 +502,19 @@ body.is-file-over .drop-hint { opacity: 1; }
 @media (max-width: 640px) {
   .topbar { gap: 6px; padding: 0 8px 0 12px; }
   .tb-left { gap: 6px; }
-  .chip, .btn-open .btn-text { display: none; }
-  .btn-open { width: 34px; padding: 0; }
+  .chip { display: none; }
   .title-wrap::after, .board-title { font-size: 17px; padding: 5px 6px; }
   .board { padding: 14px 12px 16px; gap: 10px; scroll-snap-type: x mandatory; scroll-padding-inline: 12px; }
   .list, .add-list { flex-basis: calc(100vw - 52px); width: calc(100vw - 52px); scroll-snap-align: start; }
   .sheet { width: 100vw; }
   .sheet-body { padding: 18px 16px 28px; }
+  .recent { width: calc(100vw - 24px); max-width: none; height: min(560px, 100dvh - 24px); }
+  .recent-head { padding-left: 16px; }
+  .recent-body { padding: 6px; }
+  .recent-open { gap: 10px; padding: 10px 8px; }
+  .recent-text { grid-template-columns: minmax(0, 1fr); grid-template-areas: "line" "meta" "when"; }
+  .recent-when { align-self: start; }
+  .recent-foot { flex-direction: column-reverse; align-items: stretch; }
   .drop-hint { display: none; }
 }
 
@@ -485,7 +533,8 @@ body.is-file-over .drop-hint { opacity: 1; }
     </div>
     <div class="tb-right">
       <span class="save-status" id="save-status" aria-live="polite"></span>
-      <button class="btn btn-ghost btn-open" id="btn-open" type="button" aria-label="Open a board file"></button>
+      <button class="btn btn-ghost btn-open" id="btn-recent" type="button" aria-label="Open previous" aria-haspopup="dialog" hidden></button>
+      <button class="btn btn-ghost btn-open" id="btn-open" type="button" aria-label="Open from file"></button>
       <button class="btn btn-primary btn-save" id="btn-save" type="button"><span class="ring" aria-hidden="true"></span><span>Save</span></button>
       <button class="icon-btn is-34" id="btn-menu" type="button" aria-label="Board actions" aria-haspopup="menu" aria-expanded="false"></button>
     </div>
@@ -514,6 +563,18 @@ body.is-file-over .drop-hint { opacity: 1; }
   <div class="sheet-foot">
     <button class="btn btn-danger" type="button" id="sheet-delete"></button>
     <button class="btn btn-primary" type="button" id="sheet-done">Done</button>
+  </div>
+</dialog>
+
+<dialog class="recent" id="recent" aria-labelledby="recent-title">
+  <div class="recent-head">
+    <h2 class="recent-title" id="recent-title">Open a previous board</h2>
+    <button class="icon-btn" type="button" id="recent-close" aria-label="Close"></button>
+  </div>
+  <div class="recent-body" id="recent-body"></div>
+  <div class="recent-foot">
+    <button class="btn btn-ghost" type="button" id="recent-file"></button>
+    <button class="btn btn-primary" type="button" id="recent-continue" hidden></button>
   </div>
 </dialog>
 
@@ -558,6 +619,7 @@ const ICONS = {
   right: '<path d="m9 18 6-6-6-6"/>',
   board: '<rect x="3" y="4" width="18" height="16" rx="2.5"/><path d="M9 4v16M15 4v16"/>',
   tag: '<path d="M3 12.2V5a2 2 0 0 1 2-2h7.2a2 2 0 0 1 1.4.6l7.2 7.2a2 2 0 0 1 0 2.8l-7 7a2 2 0 0 1-2.8 0l-7.2-7.2A2 2 0 0 1 3 12.2z"/><circle cx="8" cy="8" r="1.4"/>',
+  clock: '<circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/>',
 };
 const icon = name => `<svg class="i" viewBox="0 0 24 24" aria-hidden="true">${ICONS[name] || ''}</svg>`;
 
@@ -636,15 +698,24 @@ const fileChip = $('#file-chip');
 const statusEl = $('#save-status');
 const saveBtn = $('#btn-save');
 const openBtn = $('#btn-open');
+const recentBtn = $('#btn-recent');
 const menuBtn = $('#btn-menu');
 const sheet = $('#sheet');
+const recentDlg = $('#recent');
+const recentBody = $('#recent-body');
+const recentContinue = $('#recent-continue');
 const toastEl = $('#toast');
 const fileInput = $('#file-input');
 const imageInput = $('#image-input');
 
-openBtn.innerHTML = `${icon('folder')}<span class="btn-text">Open</span>`;
-openBtn.title = `Open a board file (${MOD}+O)`;
+openBtn.innerHTML = `${icon('folder')}<span class="btn-text">Open from file</span>`;
+openBtn.title = `Open from file (${MOD}+O)`;
+recentBtn.innerHTML = `${icon('clock')}<span class="btn-text">Open previous</span>`;
+recentBtn.title = 'Open previous: a board you have used before';
+recentBtn.hidden = !canPickFiles;
 menuBtn.innerHTML = icon('more');
+$('#recent-close').innerHTML = icon('x');
+$('#recent-file').innerHTML = `${icon('folder')}<span>Open from file…</span>`;
 $('#sheet-close').innerHTML = icon('x');
 $('#sheet-delete').innerHTML = `${icon('trash')}<span>Delete card</span>`;
 
@@ -858,7 +929,8 @@ menuBtn.addEventListener('click', () => openMenu(menuBtn, boardMenuItems()));
 function boardMenuItems() {
   return [
     { label: 'New board', icon: 'plus', run: newBoard },
-    { label: 'Open…', sub: 'A board file or a Trello JSON export', icon: 'folder', kbd: `${MOD} O`, run: openFile },
+    canPickFiles && { label: 'Open previous…', icon: 'clock', run: () => openRecentDialog() },
+    { label: 'Open from file…', sub: 'A board file or a Trello JSON export', icon: 'folder', kbd: `${MOD} O`, run: openFile },
     canPickFiles && { label: 'Save as…', icon: 'save', kbd: `${MOD} ⇧ S`, run: () => save(true) },
     { label: 'Download a copy', icon: 'download', run: downloadCopy },
     { label: 'Export as Markdown', icon: 'file', run: exportMarkdown },
@@ -903,8 +975,10 @@ function loadFromText(text, name, handle) {
     fileHandle = handle || null;
   }
   persistHandle();
+  rememberFile(fileHandle);
   ui.composer = null; ui.addingList = false;
   if (sheet.open) sheet.close();
+  if (recentDlg.open) recentDlg.close();
   render(); updateChrome(); saveDraft();
   boardEl.scrollLeft = 0;
   const msg = parsed.source === 'trello' ? `Imported “${board.title}” from Trello. Save it to keep a board file.` : `Opened ${name}`;
@@ -938,6 +1012,7 @@ async function save(asNew = false) {
       meta.fileName = handle.name;
       meta.savedVia = 'file';
       persistHandle();
+      rememberFile(handle);
     } else {
       const name = meta.fileName || fileSlug(board.title);
       download(json, name);
@@ -974,6 +1049,112 @@ function exportMarkdown() {
   const name = (meta.fileName || fileSlug(board.title)).replace(/\.[^.]*$/, '') + '.md';
   download(toMarkdown(), name, 'text/markdown');
 }
+
+/* ---------- Previous boards ---------- */
+// Chrome and Edge can keep file handles in IndexedDB and reopen them later. Browsers never reveal
+// a file's folder, so each entry shows the file name plus a summary of the board it held.
+const RECENT_MAX = 12;
+let recentItems = [];
+
+async function readRecent() {
+  try { return (await idb.get('recent')) || []; } catch (_) { return []; }
+}
+const sameFile = (a, b) => (a && b ? a.isSameEntry(b).catch(() => false) : Promise.resolve(false));
+async function withoutFile(list, handle) {
+  const same = await Promise.all(list.map(e => sameFile(handle, e.handle)));
+  return list.filter((_, i) => !same[i]);
+}
+async function rememberFile(handle) {
+  if (!handle) return;
+  const entry = {
+    name: handle.name, handle, title: board.title,
+    lists: board.lists.length, cards: board.lists.reduce((n, l) => n + l.cards.length, 0),
+    usedAt: new Date().toISOString(),
+  };
+  const rest = await withoutFile(await readRecent(), handle);
+  try { await idb.set('recent', [entry, ...rest].slice(0, RECENT_MAX)); } catch (_) { /* the list is a convenience */ }
+}
+async function forgetFile(handle) {
+  try { await idb.set('recent', await withoutFile(await readRecent(), handle)); } catch (_) { /* ignore */ }
+}
+
+const plural = (n, word) => `${n} ${word}${n === 1 ? '' : 's'}`;
+function fmtWhen(iso) {
+  const d = new Date(iso), now = new Date();
+  const yesterday = new Date(now); yesterday.setDate(now.getDate() - 1);
+  if (d.toDateString() === now.toDateString()) return `Today ${fmtTime(iso)}`;
+  if (d.toDateString() === yesterday.toDateString()) return `Yesterday ${fmtTime(iso)}`;
+  return d.toLocaleDateString([], { day: 'numeric', month: 'short', year: d.getFullYear() === now.getFullYear() ? undefined : 'numeric' });
+}
+
+async function renderRecent() {
+  recentItems = await readRecent();
+  const current = await Promise.all(recentItems.map(e => sameFile(fileHandle, e.handle)));
+  recentBody.innerHTML = recentItems.length ? `<ul class="recent-list">${recentItems.map((e, i) => `<li class="recent-item">
+      <button class="recent-open" type="button" data-i="${i}">
+        <span class="recent-icon">${icon('file')}</span>
+        <span class="recent-text">
+          <span class="recent-line"><span class="recent-name">${esc(e.name)}</span>${current[i] ? '<span class="recent-tag">Open now</span>' : ''}</span>
+          <span class="recent-when">${esc(fmtWhen(e.usedAt))}</span>
+          <span class="recent-meta">${esc(e.title)} · ${plural(e.lists, 'list')} · ${plural(e.cards, 'card')}</span>
+        </span>
+      </button>
+      <button class="icon-btn" type="button" data-forget="${i}" aria-label="Remove ${esc(e.name)} from the list" title="Remove from the list">${icon('x')}</button>
+    </li>`).join('')}</ul>`
+    : `<div class="recent-empty"><h3>No previous boards yet</h3><p>Boards you open from a file or save to one show up here, so you can get back to them in one click.</p></div>`;
+}
+
+async function openRecentDialog(atStart = false) {
+  $('#recent-title').textContent = atStart ? 'Choose a board' : 'Open a previous board';
+  recentContinue.hidden = !atStart;
+  recentContinue.innerHTML = `<span>Continue with ${meta.sample ? 'the sample board' : `“${esc(board.title)}”`}</span>`;
+  await renderRecent();
+  if (!recentDlg.open) recentDlg.showModal();
+  (recentDlg.querySelector('.recent-open') || $('#recent-file')).focus();
+}
+
+async function openPrevious(entry) {
+  const { handle, name } = entry;
+  try {
+    const opts = { mode: 'readwrite' };
+    if ((await handle.queryPermission(opts)) !== 'granted' && (await handle.requestPermission(opts)) !== 'granted') {
+      toast(`Allow access to ${name} to open it.`);
+      return;
+    }
+    const file = await handle.getFile();
+    loadFromText(await file.text(), file.name, handle);
+  } catch (err) {
+    if (err && err.name === 'NotFoundError') {
+      await forgetFile(handle);
+      await renderRecent();
+      toast(`Couldn't find ${name}. It was moved, renamed or deleted, so it's off the list now.`);
+    } else {
+      toast(`Couldn't open ${name}: ${errMsg(err)}`);
+    }
+  }
+}
+
+recentBody.addEventListener('click', async e => {
+  const forget = e.target.closest('[data-forget]');
+  if (forget) {
+    const index = Number(forget.dataset.forget);
+    await forgetFile(recentItems[index].handle);
+    await renderRecent();
+    const rows = recentBody.querySelectorAll('.recent-open');
+    (rows[Math.min(index, rows.length - 1)] || $('#recent-file')).focus();
+    return;
+  }
+  const row = e.target.closest('.recent-open');
+  if (row) openPrevious(recentItems[row.dataset.i]);
+});
+recentBtn.addEventListener('click', () => openRecentDialog());
+$('#recent-close').addEventListener('click', () => recentDlg.close());
+recentContinue.addEventListener('click', () => recentDlg.close());
+$('#recent-file').addEventListener('click', () => openFile());
+let recentBackdropDown = false;
+recentDlg.addEventListener('pointerdown', e => { recentBackdropDown = e.target === recentDlg; });
+recentDlg.addEventListener('click', e => { if (e.target === recentDlg && recentBackdropDown) recentDlg.close(); });
+recentDlg.addEventListener('close', () => { if (toastEl.parentElement === recentDlg) document.body.append(toastEl); });
 
 function newBoard() {
   const prev = snapshot();
@@ -1931,7 +2112,7 @@ let toastTimer = 0;
 function toast(message, action) {
   toastEl.innerHTML = `<span>${esc(message)}</span>${action ? `<button type="button">${esc(action.label)}</button>` : ''}`;
   toastEl.classList.toggle('is-plain', !action);
-  const host = sheet.open ? sheet : document.body;
+  const host = sheet.open ? sheet : recentDlg.open ? recentDlg : document.body;
   if (toastEl.parentElement !== host) host.append(toastEl);
   if (action) toastEl.querySelector('button').onclick = () => { hideToast(); action.run(); };
   toastEl.classList.remove('is-on');
@@ -1978,6 +2159,7 @@ async function boot() {
   wasSynced = !!meta.fileName && !meta.dirty;
   render();
   updateChrome();
+  if (canPickFiles) openRecentDialog(true);
 }
 boot();
 })();

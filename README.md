@@ -10,7 +10,8 @@ A simple, single-user Trello clone. The whole board loads from and saves to a JS
 
 - Lists and cards with drag and drop (mouse and touch; press and hold on a phone).
 - Cards have a title, a description, coloured labels and an optional image.
-- **Open** (Ctrl+O) loads a board JSON file. You can also drop a `.json` file onto the page.
+- **Open from file** (Ctrl+O) loads a board JSON file. You can also drop a `.json` file onto the page.
+- **Open previous** lists the board files you have opened or saved before, newest first, with each board's title, list and card counts and when you last used it. Clicking one reads it fresh from the file. The list also appears when the app starts, so you can pick a board or carry on with the one from last time. Browsers don't reveal which folder a file is in, so the list shows file names only. (Chrome and Edge only; see below.)
 - **Save** (Ctrl+S) writes the board back to the same file. The ring on the Save button is filled when the file matches the board and hollow when there are unsaved changes.
 - **Export as Markdown** (in the ⋯ menu) downloads a readable `.md` copy of the board, named after the board file: the title, then every list with its cards, labels, descriptions and images.
 - Trello JSON exports open directly, so you can bring an existing board over. In Trello, use Menu → Print, export and share → Export as JSON. Archived lists and cards are skipped. Images uploaded to Trello are not imported, because Trello only serves them to logged-in users.
@@ -19,7 +20,7 @@ A simple, single-user Trello clone. The whole board loads from and saves to a JS
 
 ## Browser support
 
-Chrome and Edge save straight back to the file you opened. Firefox and Safari can't write files from a web page, so there Save downloads the JSON instead.
+Chrome and Edge save straight back to the file you opened, and remember files for **Open previous**. When you reopen a file from the list, the browser may ask for permission to edit it. Firefox and Safari can't write or reopen files from a web page, so there Save downloads the JSON instead and only **Open from file** is offered.
 
 ## Running it locally
 

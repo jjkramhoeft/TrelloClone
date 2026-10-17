@@ -263,11 +263,11 @@ Ten families named after Trello's colours (green, yellow, orange, red, purple, b
 
 ## Layout
 
-The app is a two-row grid: a 56px top bar and a full-height board. The top bar puts the mark, the inline-editable board title and the file chip on the left, and the save status, Open (ghost), Save (primary) and an overflow menu on the right. The board is a horizontal row of 280px lists with 14px gaps and 20px/24px/24px padding, scrolling sideways, and it ends with a dashed ghost "Add list" column. Inside a list, cards stack with 8px gaps, with 8px side padding and a footer holding "Add a card". Lists cap at full height and scroll their cards internally.
+The app is a two-row grid: a 56px top bar and a full-height board. The top bar puts the mark, the inline-editable board title and the file chip on the left, and the save status, Open previous and Open from file (ghosts), Save (primary) and an overflow menu on the right. The board is a horizontal row of 280px lists with 14px gaps and 20px/24px/24px padding, scrolling sideways, and it ends with a dashed ghost "Add list" column. Inside a list, cards stack with 8px gaps, with 8px side padding and a footer holding "Add a card". Lists cap at full height and scroll their cards internally.
 
 The card sheet is a right-docked dialog 500px wide (full width on small screens) with a hairline-separated head, a scrolling body with 24px gaps between sections, and a foot.
 
-Below 760px the save status text hides (the ring stays). Below 640px the file chip hides, Open becomes icon-only, the title drops to 17px, the board padding tightens to 14px/12px with 10px gaps, and lists widen to `100vw - 52px` with mandatory horizontal scroll-snap, one list per screen.
+Below 900px the two Open buttons become icon-only. Below 760px the save status text hides (the ring stays). Below 640px the file chip hides, the title drops to 17px, the board padding tightens to 14px/12px with 10px gaps, and lists widen to `100vw - 52px` with mandatory horizontal scroll-snap, one list per screen.
 
 ## Elevation & Depth
 
@@ -328,6 +328,9 @@ An inline card-shaped textarea (10px radius, rest shadow) that grows with conten
 
 ### Card Sheet
 A right-docked dialog that slides in 28px with a fade over 260ms on the shared curve. Head: breadcrumb and a list select. Body: the headline title, then Labels, Description and Cover sections, each with a muted field label. The cover dropzone is a dashed 12px panel that turns to Chartreuse Wash with a solid Chartreuse Edge while a file is over it. Foot: delete (danger) and close.
+
+### Previous Boards Dialog
+A centred modal covering 60% of the viewport (never narrower than 560px where it fits, full width less 12px gutters on small screens) over the same 20% ink backdrop as the sheet. Paper White, hairline border, 14px radius and a deep diffuse shadow; it opens with the menu's fade-and-rise over 200ms. The head holds a 17px bold title and a close icon button. Each row is a full-width button: a 36px Column White file tile, the file name at 500, an optional "Open now" tag on Hover Grey, a muted summary line (board title, list and card counts in tabular figures) and the last-used time on the right, which drops below the summary on small screens. Rows take Pale Grey on hover and end with a quiet remove icon button. The foot pairs a ghost "Open from file…" with, at startup only, the primary "Continue with …" button; on small screens they stack full width with the primary on top. With no files yet, the body shows a centred bold heading and a muted line.
 
 ### Toast
 An ink pill-ended bar (11px radius) bottom-centre, light text, with underlined inline action buttons such as Undo. It rises 14px and fades in. Plain toasts carry no action.
