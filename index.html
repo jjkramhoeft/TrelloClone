@@ -772,10 +772,12 @@ function toJSON() {
   return JSON.stringify({ format: 'planning-board', version: 1, savedAt: new Date().toISOString(), board }, null, 2) + '\n';
 }
 
-// Lists become ## headings and cards ### headings. Images are collected as references at the end
+// Lists become ## headings and cards plain paragraphs. Images are collected as references at the end
 // so large data URLs don't bury the text.
 function toMarkdown() {
   const mdEsc = s => str(s).replace(/[\\`*_[\]<>#]/g, '\\$&');
+  // A plain line still turns into a list item or rule if it starts with a marker.
+  const mdLine = s => mdEsc(s).replace(/^([-+=])/, '\\$1').replace(/^(\d+)([.)])/, '$1\\$2');
   const pct = c => '%' + c.charCodeAt(0).toString(16).padStart(2, '0').toUpperCase();
   const out = [`# ${mdEsc(board.title)}`];
   const images = [];
@@ -783,7 +785,7 @@ function toMarkdown() {
     out.push('', `## ${mdEsc(list.title)}`);
     if (!list.cards.length) out.push('', '_No cards_');
     list.cards.forEach(card => {
-      out.push('', `### ${mdEsc(card.title)}`);
+      out.push('', mdLine(card.title));
       const labels = card.labels.map(labelById).filter(Boolean).map(l => mdEsc(l.name || l.color));
       if (labels.length) out.push('', `**Labels:** ${labels.join(', ')}`);
       if (card.image) {
